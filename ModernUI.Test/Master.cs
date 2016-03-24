@@ -18,7 +18,7 @@ namespace ModernUI.Test
         {
             Form1 frm = new Form1();
             frm.MdiParent = this;
-            frm.Dock = System.Windows.Forms.DockStyle.Left;
+            //frm.Dock = System.Windows.Forms.DockStyle.Left;
             frm.Show();
 
             MUIMessageBox msgb = new MUIMessageBox(System.Windows.Forms.MessageBoxButtons.YesNo);

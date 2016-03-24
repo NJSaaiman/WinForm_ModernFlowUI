@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(600, 600);
             this.Name = "Master";
             this.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.Text = "MDI Parent";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();

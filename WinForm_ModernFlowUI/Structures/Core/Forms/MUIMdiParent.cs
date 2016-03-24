@@ -33,6 +33,7 @@ namespace ModernUI.Structures.Core.Forms
         void MUIMdiParent_Load(object sender, EventArgs e)
         {
             CreateTitleBar();
+            RegisterEvents();
         }
     }
 }

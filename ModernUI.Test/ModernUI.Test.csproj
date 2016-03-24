@@ -84,7 +84,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApplication6\ModernUI.csproj">
+    <ProjectReference Include="..\WinForm_ModernFlowUI\ModernUI.csproj">
       <Project>{9bec5615-900a-4339-b377-1967a44a49fd}</Project>
       <Name>ModernUI</Name>
     </ProjectReference>

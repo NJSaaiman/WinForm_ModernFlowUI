@@ -37,6 +37,7 @@ namespace ModernUI.Structures.Core.Forms
         void MUIForm_Load(object sender, EventArgs e)
         {
             CreateTitleBar();
+            RegisterEvents();
         }
 
 

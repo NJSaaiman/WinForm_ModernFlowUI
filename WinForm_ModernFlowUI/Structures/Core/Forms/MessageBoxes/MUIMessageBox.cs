@@ -44,6 +44,7 @@ namespace ModernUI.Structures.Core.Forms.MessageBoxes
         void MUIMessageBox_Load(object sender, EventArgs e)
         {
             CreateTitleBar();
+            RegisterEvents();
             SetupButtons();
         }
 
@@ -139,6 +140,7 @@ namespace ModernUI.Structures.Core.Forms.MessageBoxes
                     {
                         Text = caption,
                         Size = new Size(BUTTON_WIDTH, BUTTON_HEIGHT),
+                        Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
                         Location = location,
                         FlatStyle = FlatStyle.Flat,
                         DialogResult = returnResult

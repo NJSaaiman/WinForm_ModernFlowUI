@@ -23,7 +23,7 @@ namespace ModernUI.Structures.Core.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.FormBorderStyle = FormBorderStyle.None; // get rid of the standard title bar
+            
         }
     }
 }

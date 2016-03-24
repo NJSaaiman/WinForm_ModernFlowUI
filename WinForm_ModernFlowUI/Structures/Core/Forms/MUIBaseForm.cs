@@ -10,8 +10,25 @@ namespace ModernUI.Structures.Core.Forms
 {
     public partial class MUIBaseForm : Form
     {
+        private bool _allowResizing;
         private Size _clientSize;
         private Label _title;
+        private bool _isResizingX;
+        private bool _isResizingY;
+
+        [Description("Allow the form te be resized"),
+        Category("Modern UI")]
+        public bool AllowResizing
+        {
+            get
+            {
+                return _allowResizing;
+            }
+            set
+            {
+                _allowResizing = value;
+            }
+        }
 
         [Description("Title"), Category("Modern UI")]
         public Label Title
@@ -64,6 +81,7 @@ namespace ModernUI.Structures.Core.Forms
         public MUIBaseForm(IStyleManager manager, Size size)
             : base()
         {
+            this.FormBorderStyle = FormBorderStyle.None; // get rid of the standard title bar
             InitializeComponent();
             Size = size;
             StyleManager = manager;
@@ -72,20 +90,100 @@ namespace ModernUI.Structures.Core.Forms
 
             this.Load += MUIBaseForm_Load;
             this.FormClosing += MUIBaseForm_FormClosing;
+
+           
+
+        }
+
+        public void RegisterEvents()
+        {
+            if (AllowResizing)
+            {
+                this.MouseMove += MUIBaseForm_MouseMove;
+                this.MouseDown += MUIBaseForm_MouseDown;
+                this.MouseUp += MUIBaseForm_MouseUp;
+            }
+        }
+
+        void MUIBaseForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            this._isResizingX = false;
+            this._isResizingY = false;
+        }
+
+        void MUIBaseForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if ((e.Location.Y <= this.ClientRectangle.Bottom + 5 && e.Location.Y >= this.ClientRectangle.Bottom - 5) &&
+                (e.Location.X <= this.ClientRectangle.Right + 5 && e.Location.X >= this.ClientRectangle.Right - 5))
+            {
+                this._isResizingX = true;
+                this._isResizingY = true;
+            }
+            else if (e.Location.X <= this.ClientRectangle.Right + 3 && e.Location.X >= this.ClientRectangle.Right - 3)
+            {
+                this._isResizingX = true;
+            }
+            else if (e.Location.Y <= this.ClientRectangle.Bottom + 3 && e.Location.Y >= this.ClientRectangle.Bottom - 3)
+            {
+                this._isResizingY = true;
+            }
+        }
+
+        void MUIBaseForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Title.Text = e.Location.X.ToString() + " ~ " + e.Location.Y.ToString();
             
+            if ((e.Location.Y <= this.ClientRectangle.Bottom + 5 && e.Location.Y >= this.ClientRectangle.Bottom - 5) &&
+                (e.Location.X <= this.ClientRectangle.Right + 5 && e.Location.X >= this.ClientRectangle.Right - 5))
+            {
+                Cursor.Current = System.Windows.Forms.Cursors.SizeNWSE;
+            }
+            else if ((e.Location.Y <= this.ClientRectangle.Bottom + 3 && e.Location.Y >= this.ClientRectangle.Bottom - 3))
+            {
+                Cursor.Current = System.Windows.Forms.Cursors.SizeNS;
+            }
+            else if ((e.Location.X <= this.ClientRectangle.Right + 3 && e.Location.X >= this.ClientRectangle.Right - 3) ||
+                        (e.Location.X <= this.ClientRectangle.Left + 3 && e.Location.X >= this.ClientRectangle.Left - 3))
+            {
+                Cursor.Current = System.Windows.Forms.Cursors.SizeWE;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            if (this._isResizingX && this._isResizingY)
+            {
+                this.Size = new Size(this.Width + (e.X - this.Width), this.Height + (e.Y - this.Height));
+            }
+            else if (this._isResizingX)
+            { // if we should be dragging it, we need to figure out some movement
+                this.Size = new Size(this.Width + (e.X - this.Width), this.Height);
+            }
+            else if (this._isResizingY)
+            { // if we should be dragging it, we need to figure out some movement
+                this.Size = new Size(this.Width, this.Height + (e.Y - this.Height));
+            }
         }
 
         void MUIBaseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Resize -= MUIBaseForm_Resize;
             this.Paint -= MessageBox_Paint;
+
+            if (AllowResizing)
+            {
+                this.MouseMove -= MUIBaseForm_MouseMove;
+                this.MouseDown -= MUIBaseForm_MouseDown;
+                this.MouseUp -= MUIBaseForm_MouseUp;
+            }
         }
 
         void MUIBaseForm_Load(object sender, EventArgs e)
         {
             this.Resize += MUIBaseForm_Resize;
             this.Paint += MessageBox_Paint;
-            
+
         }
 
         void MUIBaseForm_Resize(object sender, EventArgs e)
@@ -115,10 +213,6 @@ namespace ModernUI.Structures.Core.Forms
 
                 }
                 _size = value;
-                //if (ClientSize != value)
-                //{
-                //    ClientSize = value;
-                //}
             }
         }
 
@@ -187,7 +281,7 @@ namespace ModernUI.Structures.Core.Forms
                 widthOffset = this.Width;
             }
 
-            this.Title.Location = new Point(0,0); // assign the location to the form location
+            this.Title.Location = new Point(0, 0); // assign the location to the form location
             this.Title.Width = widthOffset; // make it the same width as the form
             this.Title.AutoSize = false;
             this.Title.Height = 30; // give it a default height (you may want it taller/shorter)
@@ -248,11 +342,11 @@ namespace ModernUI.Structures.Core.Forms
                     this.minimise.MouseEnter += new EventHandler(Control_MouseEnter);
                     this.minimise.MouseLeave += new EventHandler(Control_MouseLeave);
                     this.minimise.MouseClick += new MouseEventHandler(Control_MouseClick);
-                } 
+                }
             }
 
-            
-            
+
+
 
             this.Title.MouseDown += new MouseEventHandler(Title_MouseDown);
             this.Title.MouseUp += new MouseEventHandler(Title_MouseUp);
@@ -321,7 +415,7 @@ namespace ModernUI.Structures.Core.Forms
 
         void Title_MouseMove(object sender, MouseEventArgs e)
         {
-            int offset = (this.IsMdiChild ?  30 : 0);
+            int offset = (this.IsMdiChild ? 30 : 0);
             if (this.drag)
             { // if we should be dragging it, we need to figure out some movement
                 Point p1 = new Point(e.X, e.Y - offset);

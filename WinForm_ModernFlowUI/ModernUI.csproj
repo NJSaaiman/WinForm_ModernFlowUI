@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BEC5615-900A-4339-B377-1967A44A49FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModernUI</RootNamespace>
+    <AssemblyName>ModernUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default_Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Default_Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Structures\Core\Forms\MUIBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Structures\Core\Forms\MessageBoxes\MUIMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Structures\Core\Forms\MUIBaseForm.designer.cs">
+      <DependentUpon>MUIBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Structures\Core\Forms\MUIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Structures\Core\Forms\MUIMdiParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Structures\Extensions\FormExtensions.cs" />
+    <Compile Include="Structures\Style\CustomStyleManager.cs" />
+    <Compile Include="Structures\Style\IStyleManager.cs" />
+    <Compile Include="Structures\Style\DefaultStyle.cs" />
+    <Compile Include="Structures\Utils\ExtendedGraphics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Default_Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Default_Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Structures\Core\Forms\MessageBoxes\MUIMessageBox.resx">
+      <DependentUpon>MUIMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form_Close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form_Maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form_Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form_ToTaskbar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

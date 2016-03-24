@@ -1,0 +1,11 @@
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.csprojResolveAssemblyReference.cache
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.Properties.Resources.resources
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.csproj.GenerateResource.Cache
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\bin\Debug\ModernUI.Test.exe
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\bin\Debug\ModernUI.Test.pdb
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\bin\Debug\ModernUI.dll
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\bin\Debug\ModernUI.pdb
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.exe
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.pdb
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.Form1.resources
+c:\Users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ModernUI.Test\obj\Debug\ModernUI.Test.Master.resources

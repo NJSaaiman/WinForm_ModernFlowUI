@@ -1,0 +1,8 @@
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\bin\Debug\ModernUI.pdb
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.pdb
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.csproj.GenerateResource.Cache
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.csprojResolveAssemblyReference.cache
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.Default_Images.resources
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.Structures.Core.Forms.MessageBoxes.MUIMessageBox.resources
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\bin\Debug\ModernUI.dll
+c:\users\nsaaiman\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ModernUI.dll

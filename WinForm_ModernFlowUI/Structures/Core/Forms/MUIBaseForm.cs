@@ -1,4 +1,5 @@
-﻿using ModernUI.Structures.Style;
+﻿using ModernUI.Structures.Interfaces;
+using ModernUI.Structures.Style;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -91,7 +92,7 @@ namespace ModernUI.Structures.Core.Forms
             this.Load += MUIBaseForm_Load;
             this.FormClosing += MUIBaseForm_FormClosing;
 
-           
+
 
         }
 
@@ -132,7 +133,7 @@ namespace ModernUI.Structures.Core.Forms
         void MUIBaseForm_MouseMove(object sender, MouseEventArgs e)
         {
             this.Title.Text = e.Location.X.ToString() + " ~ " + e.Location.Y.ToString();
-            
+
             if ((e.Location.Y <= this.ClientRectangle.Bottom + 5 && e.Location.Y >= this.ClientRectangle.Bottom - 5) &&
                 (e.Location.X <= this.ClientRectangle.Right + 5 && e.Location.X >= this.ClientRectangle.Right - 5))
             {
@@ -289,6 +290,7 @@ namespace ModernUI.Structures.Core.Forms
             this.Title.TextAlign = ContentAlignment.MiddleLeft;
             this.Title.BackColor = StyleManager.TitleBarBackColor;
             this.Title.ForeColor = StyleManager.TitleBarForeColor;
+            this.Title.DoubleClick += Title_DoubleClick;
             this.Controls.Add(this.Title); // add it to the form's controls, so it gets displayed
 
             if (ControlBox)
@@ -351,6 +353,24 @@ namespace ModernUI.Structures.Core.Forms
             this.Title.MouseDown += new MouseEventHandler(Title_MouseDown);
             this.Title.MouseUp += new MouseEventHandler(Title_MouseUp);
             this.Title.MouseMove += new MouseEventHandler(Title_MouseMove);
+        }
+
+
+        private void Title_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.maximise.Text = "Restore"; // change the text
+                this.maximise.BackgroundImage = Default_Images.Form_Minimize;
+                this.Title.Width = this.Width; // stretch the title bar
+            }
+            else // we need to restore
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.maximise.Text = "Maximise";
+                this.maximise.BackgroundImage = Default_Images.Form_Maximize;
+            }
         }
 
         private void Control_MouseEnter(object sender, EventArgs e)

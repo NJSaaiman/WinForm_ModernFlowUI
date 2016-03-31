@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using ModernUI.Structures.Core.Forms.MessageBoxes;
 using ModernUI.Structures.Style;
+using ModernUI.Structures.Interfaces;
 
 namespace ModernUI.Test
 {
@@ -26,7 +27,7 @@ namespace ModernUI.Test
 
             MUIMessageBox msgb = new MUIMessageBox(System.Windows.Forms.MessageBoxButtons.YesNo);
             msgb.StyleManager = manager;
-            
+
             msgb.Text = "messgae box";
             if (msgb.Show() == System.Windows.Forms.DialogResult.Yes)
             {

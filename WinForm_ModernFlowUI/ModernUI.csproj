@@ -53,6 +53,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Default_Images.resx</DependentUpon>
     </Compile>
+    <Compile Include="Structures\Core\Controls\MUIButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Structures\Core\Forms\MUIBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,8 +72,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Structures\Extensions\FormExtensions.cs" />
+    <Compile Include="Structures\Interfaces\IControl.cs" />
     <Compile Include="Structures\Style\CustomStyleManager.cs" />
-    <Compile Include="Structures\Style\IStyleManager.cs" />
+    <Compile Include="Structures\Interfaces\IStyleManager.cs" />
     <Compile Include="Structures\Style\DefaultStyle.cs" />
     <Compile Include="Structures\Utils\ExtendedGraphics.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Form_ToTaskbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Structures\Events\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

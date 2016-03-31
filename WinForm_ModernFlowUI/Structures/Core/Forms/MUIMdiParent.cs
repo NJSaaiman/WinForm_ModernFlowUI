@@ -6,6 +6,7 @@ using System.Drawing;
 using ModernUI.Structures.Style;
 using ModernUI.Structures.Extensions;
 using System.Windows.Forms;
+using ModernUI.Structures.Interfaces;
 
 namespace ModernUI.Structures.Core.Forms
 {

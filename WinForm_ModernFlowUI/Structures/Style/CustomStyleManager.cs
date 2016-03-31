@@ -73,5 +73,21 @@ namespace ModernUI.Structures.Style
             }
         }
 
+        public override DefaultStyle.Buttons ButtonStyle
+        {
+            get
+            {
+                return new Buttons()
+                    {
+                        ForeColor = Color.Chartreuse,
+                        BackColor = Color.Chocolate
+                    };
+            }
+            set
+            {
+                base.ButtonStyle = value;
+            }
+        }
+
     }
 }

@@ -1,5 +1,5 @@
 
-namespace ModernUI.Structures.Style
+namespace ModernUI.Structures.Interfaces
 {
     public interface IStyleManager
     {
@@ -8,5 +8,6 @@ namespace ModernUI.Structures.Style
         System.Drawing.Color TitleBarBackColor { get; set; }
         System.Drawing.Color BackColor { get; set; }
         System.Drawing.Color ForeColor { get; set; }
+        ModernUI.Structures.Style.DefaultStyle.Buttons ButtonStyle { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using ModernUI.Structures.Style;
+using ModernUI.Structures.Interfaces;
 
 namespace ModernUI.Structures.Core.Forms
 {

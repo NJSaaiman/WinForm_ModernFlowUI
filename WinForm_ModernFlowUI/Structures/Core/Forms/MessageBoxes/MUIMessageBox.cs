@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using ModernUI.Structures.Extensions;
+using ModernUI.Structures.Interfaces;
+using ModernUI.Structures.Core.Controls;
 
 namespace ModernUI.Structures.Core.Forms.MessageBoxes
 {
@@ -107,7 +109,7 @@ namespace ModernUI.Structures.Core.Forms.MessageBoxes
 
 
             //position the buttons in the middle,
-            Control[] controls = this.GetControlsByType(typeof(Button));
+            Control[] controls = this.GetControlsByType(typeof(MUIButton));
 
             int left = controls[0].Left;
             int right = controls[controls.Length - 1].Left + controls[controls.Length - 1].Width;
@@ -121,9 +123,9 @@ namespace ModernUI.Structures.Core.Forms.MessageBoxes
             }
         }
 
-        private Button CreateButton(string caption, DialogResult returnResult)
+        private MUIButton CreateButton(string caption, DialogResult returnResult)
         {
-            Control[] controls = this.GetControlsByType(typeof(Button));
+            Control[] controls = this.GetControlsByType(typeof(MUIButton));
             int totalButtons = (int)Buttons;
             int buttonCount = controls.Length;
             Point location = new Point(0, Size.Height - (BUTTON_HEIGHT + GetTitleBarHeigth() + 20));
@@ -136,7 +138,7 @@ namespace ModernUI.Structures.Core.Forms.MessageBoxes
                 location.X = controls[buttonCount - 1].Left + controls[buttonCount - 1].Width + 10;
             }
 
-            return new Button()
+            return new MUIButton()
                     {
                         Text = caption,
                         Size = new Size(BUTTON_WIDTH, BUTTON_HEIGHT),
